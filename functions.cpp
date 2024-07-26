@@ -12,3 +12,35 @@ char *password_input()
     std::cin>>p;
     return p;
 }
+
+char *init_digits()
+{
+    char *p;
+    p=new char [11];
+    p="0123456789";
+    return p;
+}
+
+char *init_letters_no_caps()
+{
+    char *p;
+    p=new char [27];
+    p="abcdefghijklmnopqrstuvwxyz";
+    return p;
+}
+
+char *init_letters_caps()
+{
+    char *p;
+    p=new char [27];
+    p="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    return p;
+}
+
+char *init_special_chr()
+{
+    char *p;
+    p=new char [25];
+    p="~`"",?.!@#$%^&*(){}[]|<>:";
+    return p;
+}
