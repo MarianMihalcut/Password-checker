@@ -13,9 +13,8 @@ bool exit();
 
 //password
 short int pass_length(char *&password);
-bool has_digits(char *&password,const char *&digits);
-bool has_small_letters(char *&password,const char *&letters);
-bool has_cap_letters(char *&password,const char *&letters);
-bool has_special_chr(char *&password);
+bool is_in_str(char *&password,const char *&str);
+void results(char *&password,const char *&str,short int select,bool *&result);
+
 
 #endif

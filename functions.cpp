@@ -10,6 +10,7 @@ char *password_input()
     std::cout<<"Please input the password(should not have more than 50 characters):\n";
     p=new char[50];
     std::cin>>p;
+    std::cin.get();
     return p;
 }
 
@@ -64,9 +65,34 @@ short int pass_length(char *&password)
         return 2;
 }
 
-bool has_digits(char *&password,const char *&digits)
+bool is_in_str(char *&password,const char *&str)
 {
-    
+    int len=strlen(password);
+    for(int i=0;i<len;i++)
+        if(strchr(str,password[i]))
+            return 1;
+    return 0;
 }
 
+void results(char *&password,const char *&str,short int select,bool *&result)
+{
+    if(is_in_str(password,str))
+    {
+        switch(select)
+        {
+            case 1:
+                result[0]=1;
+                break;
+            case 2:
+                result[1]=1;
+                break;
+            case 3:
+                result[2]=1;
+                break;
+            case 4:
+                result[3]=1;
+                break;
+        }
+    }
+}
 
