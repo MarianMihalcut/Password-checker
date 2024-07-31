@@ -44,3 +44,29 @@ const char *init_special_chr()
     p="~`,?.!@#$%^&*(){}[]|<>:";
     return p;
 }
+
+bool exit()
+{
+    std::cout<<"Do you want to exit the program?\n";
+    std::cout<<"Press 1 for Yes or 0 for No\n";
+    bool answer;
+    std::cin>>answer;
+    return answer;
+}
+
+short int pass_length(char *&password)
+{
+    if(strlen(password)<=4)
+        return 0;
+    else if(strlen(password)<=25)
+        return 1;
+    else
+        return 2;
+}
+
+bool has_digits(char *&password,const char *&digits)
+{
+    
+}
+
+

@@ -4,7 +4,6 @@
 int main()
 {
     char *p;
-    p=password_input();
     const char *digits,*s_let,*b_let,*special;
     digits=init_digits();
     s_let=init_letters_no_caps();
@@ -24,5 +23,27 @@ int main()
         "qwerty",
         "ytrewq"
     };
+
+    //program
+    while(1)
+    {
+        p=password_input();
+
+        //checking password lenght
+        if(pass_length(p)==0) 
+        {
+            std::cout<<"Password is too short.\n";
+            if(exit())
+                break;
+        }
+        else if(pass_length(p)==1)
+            std::cout<<"Password has a good length\n";
+        else if(pass_length(p)==2)
+            std::cout<<"Password has an execellent length\n";
+        
+        //analysis regarding characters
+        
+    }
+    delete [] digits,s_let,b_let,special,p;
     return 0;
 }
