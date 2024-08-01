@@ -12,9 +12,16 @@ const char *init_special_chr();
 bool exit();
 
 //password
+bool is_forbidden(char *&password,const char str[][7]); //checks if password should not be used
 short int pass_length(char *&password);
 bool is_in_str(char *&password,const char *&str);
 void results(char *&password,const char *&str,short int select,bool *&result);
+
+//password strenght
+short int cnt_result(bool *&result);
+bool is_weak(char *&password,bool *&result);
+bool is_ok(char *&password,bool *&result);
+bool is_strong(char *&password,bool *&result);
 
 
 #endif

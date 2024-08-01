@@ -96,3 +96,19 @@ void results(char *&password,const char *&str,short int select,bool *&result)
     }
 }
 
+short int cnt_result(bool *&result)
+{
+    int sum=0;
+    for(int i=0;i<4;i++)
+        sum+=result[i];
+    return sum;
+}
+
+bool is_weak(char *&password,bool *&result)
+{
+    if(cnt_result(result)==1)
+        return 1;
+    else
+        return 0;
+}
+
