@@ -28,7 +28,6 @@ int main()
     while(1)
     {
         p=password_input();
-
         //checking password lenght
         if(pass_length(p)==0) 
         {
@@ -43,20 +42,43 @@ int main()
         else if(pass_length(p)==2)
             std::cout<<"Password has an execellent length\n";
         
-        //analysis regarding characters
-        bool *result;
-        result=new bool [4];
-        for(int i=0;i<4;i++)
-            result[i]=0;
-        results(p,digits,1,result);
-        results(p,s_let,2,result);
-        results(p,b_let,3,result);
-        results(p,special,4,result);
-        for(int i=0;i<4;i++)
-            std::cout<<result[i]<<' ';
-        std::cout<<'\n';
+        if(is_forbidden(p,forbidden_passwords))
+        {
+            std::cout<<"This password is unsecure-should not be used!\n\n";
+            if(exit())
+                break;
+        }  
+        else
+        {
+            //analysis regarding characters
+            bool *result;
+            result=new bool [4];
+            for(int i=0;i<4;i++)
+                result[i]=0;
+            results(p,digits,1,result);
+            results(p,s_let,2,result);
+            results(p,b_let,3,result);
+            results(p,special,4,result);
+
+            //stating pass strenght
+            if(is_weak(p,result))
+            {
+                std::cout<<"Password is weak. You should add more characters. For example:\n";
+                std::cout<<"Small letters,caps,special characters like ?,!, etc.\n";
+            }
+            else if(is_ok(p,result))
+                std::cout<<"Password is acceptable. You can also add special characters.\n";
+            else if(is_strong(p,result))
+                std::cout<<"Password is strong.\n";
+            std::cout<<'\n';
+            if(exit())
+                break;
+        }
+        
+        
     }
-    delete [] digits,s_let,b_let,special,p; //problems with memory deallocation
+
+    //deallocation
     return 0;
 }
 

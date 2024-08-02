@@ -42,7 +42,7 @@ const char *init_special_chr()
 {
     const char *p;
     p=new char [25];
-    p="~`,?.!@#$%^&*(){}[]|<>:";
+    p="~`,?.!@#$%^&*(){}[]|<>:_";
     return p;
 }
 
@@ -96,6 +96,17 @@ void results(char *&password,const char *&str,short int select,bool *&result)
     }
 }
 
+bool is_forbidden(char *&password,const char str[][7])
+{
+    int i;
+    for(i=0;i<11;i++)
+    {
+        if(strcmp(password,str[i])==0)
+            return 1;
+    }
+    return 0;
+}
+
 short int cnt_result(bool *&result)
 {
     int sum=0;
@@ -107,6 +118,22 @@ short int cnt_result(bool *&result)
 bool is_weak(char *&password,bool *&result)
 {
     if(cnt_result(result)==1)
+        return 1;
+    else
+        return 0;
+}
+
+bool is_ok(char *&password,bool *&result)
+{
+    if(cnt_result(result)==2)
+        return 1;
+    else 
+        return 0;
+}
+
+bool is_strong(char *&password,bool *&result)
+{
+    if(cnt_result(result)==3 || cnt_result(result)==4)
         return 1;
     else
         return 0;
