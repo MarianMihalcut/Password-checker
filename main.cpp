@@ -6,10 +6,10 @@ int main()
 {
     char *p;
     const char *digits,*s_let,*b_let,*special;
-    digits=init_digits();
-    s_let=init_letters_no_caps(); //small letters
-    b_let=init_letters_caps(); //big letters(caps)
-    special=init_special_chr(); //special characters
+    digits="0123456789"; //digits
+    s_let="abcdefghijklmnopqrstuvwxyz"; //small letters
+    b_let="ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //big letters(caps)
+    special="~`,?.!@#$%^&*(){}[]|<>:_"; //special characters
 
     const char forbidden_passwords[11][7]={
         "00000",

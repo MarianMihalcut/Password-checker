@@ -14,38 +14,6 @@ char *password_input()
     return p;
 }
 
-const char *init_digits()
-{
-    const char *p;
-    p=new char [11];
-    p="0123456789";
-    return p;
-}
-
-const char *init_letters_no_caps()
-{
-    const char *p;
-    p=new char [27];
-    p="abcdefghijklmnopqrstuvwxyz";
-    return p;
-}
-
-const char *init_letters_caps()
-{
-    const char *p;
-    p=new char [27];
-    p="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return p;
-}
-
-const char *init_special_chr()
-{
-    const char *p;
-    p=new char [25];
-    p="~`,?.!@#$%^&*(){}[]|<>:_";
-    return p;
-}
-
 bool exit()
 {
     std::cout<<"Do you want to exit the program?\n";
