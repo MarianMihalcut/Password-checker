@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "pass_check.h"
 
 int main()
@@ -79,6 +80,8 @@ int main()
     }
 
     //deallocation
+    delete [] p;
+    p=0;
     return 0;
 }
 
